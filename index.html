@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Namedly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #000;
+      background: #fff;
+    }
+
+    /* ── Header 2 (Top bar) ── */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 64px;
+      height: 110px;
+    }
+
+    .header-top .brand {
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: -1.68px;
+      line-height: 1.1;
+    }
+
+    .header-top nav {
+      display: flex;
+      gap: 40px;
+    }
+
+    .header-top nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+
+    .header-top nav a:hover {
+      opacity: 0.6;
+    }
+
+    /* ── Header 1 (Menu bar) ── */
+    .header-menu {
+      display: flex;
+      justify-content: center;
+      padding: 24px 320px;
+    }
+
+    .menu-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #000;
+      border-radius: 16px;
+      padding: 8px 16px;
+      width: 640px;
+      height: 55px;
+    }
+
+    .menu-company {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .menu-company img {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+    }
+
+    .menu-company span {
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .menu-buttons {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .menu-buttons .btn-secondary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-buttons .btn-primary {
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+      background: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .menu-buttons .btn-primary:hover {
+      background: #eee;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      min-height: 637px;
+    }
+
+    .hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+      padding: 120px 64px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 512px;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.68px;
+    }
+
+    .hero-text p {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .hero-buttons .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      background: #000;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      min-width: 153px;
+      height: 50px;
+    }
+
+    .hero-buttons .btn-primary:hover {
+      background: #333;
+    }
+
+    .hero-buttons .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      background: #fff;
+      color: #000;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      border: 1.5px solid #000;
+      border-radius: 12px;
+      cursor: pointer;
+      min-width: 153px;
+      height: 50px;
+    }
+
+    .hero-buttons .btn-outline:hover {
+      background: #f5f5f5;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-height: 637px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── Feature Cards ── */
+    .feature-cards {
+      display: flex;
+      gap: 32px;
+      padding: 120px 64px;
+    }
+
+    .card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      border-radius: 8px;
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 363 / 483;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-text h3 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .card-text p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: rgba(0, 0, 0, 0.55);
+    }
+
+    /* ── Embeds ── */
+    .embeds {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding: 80px 64px;
+    }
+
+    .embed-box {
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 16 / 10;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .embed-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .header-menu {
+        padding: 24px 32px;
+      }
+
+      .menu-bar {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-top {
+        padding: 16px 24px;
+        height: auto;
+      }
+
+      .header-top .brand {
+        font-size: 32px;
+      }
+
+      .header-menu {
+        padding: 16px 24px;
+      }
+
+      .menu-bar {
+        width: 100%;
+        gap: 16px;
+      }
+
+      .hero {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 60px 24px;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-text p {
+        font-size: 18px;
+      }
+
+      .hero-image {
+        min-height: 300px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .feature-cards {
+        flex-direction: column;
+        padding: 60px 24px;
+      }
+
+      .embeds {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header 2: Brand + Nav -->
+  <header class="header-top">
+    <div class="brand">NAMEDLY</div>
+    <nav>
+      <a href="#">Contact</a>
+      <a href="#">Download</a>
+    </nav>
+  </header>
+
+  <!-- Header 1: Menu bar -->
+  <div class="header-menu">
+    <div class="menu-bar">
+      <div class="menu-company">
+        <img src="img/logo.png" alt="Namedly Logo">
+        <span>Namedly</span>
+      </div>
+      <div class="menu-buttons">
+        <button class="btn-secondary">Secondary</button>
+        <button class="btn-primary">Call to action</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>안우용은 지금<br>간짜장 곱빼기가<br>먹고싶다.</h1>
+        <p>요즘 짜장만 잘하는 집이 없다. 맛도 없는게 1만원이나 하는데 내가 이걸 왜 돈주고 사먹어야하는가. 짜장면이라도 자주 먹고 싶다.</p>
+      </div>
+      <div class="hero-buttons">
+        <button class="btn-primary">간짜장 주문하기</button>
+        <button class="btn-outline">팔보채 주문하기</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="img/hero.png" alt="Hero Image">
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="feature-cards">
+    <div class="card">
+      <img src="img/card1.png" alt="A small card">
+      <div class="card-text">
+        <h3>A small card</h3>
+        <p>Call out a feature, benefit, or value of your site that can stand on its own.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="img/card2.png" alt="A little glimpse">
+      <div class="card-text">
+        <h3>A little glimpse</h3>
+        <p>Call out a feature, benefit, or value of your site that can stand on its own.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="img/card3.png" alt="A quick peek">
+      <div class="card-text">
+        <h3>A quick peek</h3>
+        <p>Call out a feature, benefit, or value of your site that can stand on its own.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Embeds (Google Maps + YouTube placeholders) -->
+  <section class="embeds">
+    <div class="embed-box" style="background: #e8f0fe; display: flex; align-items: center; justify-content: center;">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="#4285F4"/></svg>
+    </div>
+    <div class="embed-box" style="background: #fce4ec; display: flex; align-items: center; justify-content: center;">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.84.55 9.38.55 9.38.55s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81z" fill="#FF0000"/><path d="m9.75 15.02 6.25-3.02-6.25-3.02v6.04z" fill="#fff"/></svg>
+    </div>
+  </section>
+
+</body>
+</html>
